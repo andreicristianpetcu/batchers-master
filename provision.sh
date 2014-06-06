@@ -2,9 +2,9 @@
 export DEBIAN_FRONTEND=noninteractive
 # apt-get update && apt-get upgrade -y
 # apt-get install git firefox xvfb htop -y
-# Xvfb :10 -ac
-# export DISPLAY=:10
-
+export DISPLAY=:10
+killall Xcfb
+Xvfb :10 -ac </dev/null &>/dev/null &
 # # install java
 # add-apt-repository ppa:webupd8team/java
 # echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
