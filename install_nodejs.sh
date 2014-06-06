@@ -13,6 +13,8 @@ ndenv rehash
 
 
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+
 rm -rf ~/.local/lib/node_modules
 echo "prefix = ~/.local
 root = ~/.local/lib/node_modules
