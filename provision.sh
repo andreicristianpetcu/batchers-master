@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 export DEBIAN_FRONTEND=noninteractive
 # apt-get update && apt-get upgrade -y
-# apt-get install git -y
-
+# apt-get install git firefox xvfb htop -y
+# Xvfb :10 -ac
+# export DISPLAY=:10
 
 # # install java
 # add-apt-repository ppa:webupd8team/java
