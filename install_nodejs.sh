@@ -26,13 +26,14 @@ npm install karma-jasmine --save-dev
 
 
 rm -rf ~/.local/bin/karma
+mkdir -p ~/.local/bin/
 ln -s ~/.local/lib/node_modules/karma/bin/karma ~/.local/bin/karma
 
 cd ~
 rm -rf batchers
 git clone https://github.com/cegeka/batchers.git
 cd ~/batchers/taxcalculator
-mvn clean install -Dmaven.test.skip=true
+mvn clean install
 
 cd taxcalculator-presentation
 mvn package
