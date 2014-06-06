@@ -1,4 +1,6 @@
 # install nodejs
+set -e
+
 rm -rf ~/.ndenv
 git clone https://github.com/riywo/ndenv ~/.ndenv
 echo 'export PATH="$HOME/.ndenv/bin:$PATH"' >> ~/.bash_profile
@@ -17,7 +19,7 @@ root = ~/.local/lib/node_modules
 binroot = ~/.local/bin
 manroot = ~/.local/share/man" | tee ~/.npmrc
 
-source ~/.npmrc
+# source ~/.npmrc
 
 npm install -g karma karma-ng-scenario karma-junit-reporter karma-jasmine
 npm install karma-chrome-launcher --save-dev

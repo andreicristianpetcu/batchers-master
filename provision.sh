@@ -9,16 +9,19 @@ apt-get install git firefox xvfb htop -y
 export DISPLAY=:10
 
 XCFB_PID=`ps ax|grep Xvfb|cut -d' ' -f1`
-if [[ -n "$XCFB_PID" ]]; then killall Xvfb ;fi
-Xvfb :10 -ac </dev/null &>/dev/null &
+if [[ ! -n "$XCFB_PID" ]]; then 
+  echo "Starting Xvfb"
+  Xvfb :10 -ac </dev/null &>/dev/null &
+fi;
 
 # install java
-# add-apt-repository ppa:webupd8team/java
-# echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-# sudo apt-get install oracle-java8-installer -y
-# sudo apt-get install oracle-java8-set-default -y
-# sudo apt-get install maven -y
-#
+add-apt-repository ppa:webupd8team/java
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+sudo apt-get update
+sudo apt-get install oracle-java8-installer -y
+sudo apt-get install maven -y
+sudo apt-get install oracle-java8-set-default -y
+
 
 # install mysql server
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password taxcalculator'
