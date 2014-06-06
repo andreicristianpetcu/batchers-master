@@ -15,6 +15,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.memory = 1024
   end
 
+  # tomcat presentation app
+  config.vm.network "forwarded_port", guest: 9090, host: 9090
+  # jetty (stub web service) 
+  config.vm.network "forwarded_port", guest: 9091, host: 9091
+  # mysql
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
+
   config.vm.provision "file", source: "install_nodejs.sh", destination: "install_nodejs.sh"
   # command = "cp #{File.join('/vagrant/', path_within_repo)} #{remote_file}"
   # config.vm.provision :shell, :inline => command
