@@ -11,6 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "batchers-master"
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+  end
 
   config.vm.provision "file", source: "install_nodejs.sh", destination: "install_nodejs.sh"
   # command = "cp #{File.join('/vagrant/', path_within_repo)} #{remote_file}"
