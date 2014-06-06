@@ -44,21 +44,28 @@ mvn package
 # ~/batchers/taxcalculator/taxcalculator-presentation/target/taxcalculator-presentation-1.0-SNAPSHOT.war
 
 cd ../taxcalculator-stubwebservice/
+mvn package
 # kill jetty if exists
-kill -9 `lsof -i:9091 -t`
-mvn jetty:run </dev/null &>/dev/null &
+# mvn jetty:run </dev/null &>/dev/null &
 
 # install tomcat
 cd ~
 rm -rf apache-tomcat-*
 wget http://apache.cu.be/tomcat/tomcat-7/v7.0.54/bin/apache-tomcat-7.0.54.tar.gz
-tar -xvf apache-tomcat-7.0.54.tar.gz
-
+tar -xf apache-tomcat-7.0.54.tar.gz
+cp -r apache-tomcat-7.0.54 apache-tomcat-7.0.54-stubwebservice
 
 #change tomcat port form 8080 to 9090
 sed -i 's/"8080"/"9090"/g' ~/apache-tomcat-7.0.54/conf/server.xml
 apache-tomcat-7.0.54/bin/catalina.sh start
 
+sed -i 's/"8080"/"9091"/g' ~/apache-tomcat-7.0.54-stubwebservice/conf/server.xml
+sed -i 's/"8009"/"8010"/g' ~/apache-tomcat-7.0.54-stubwebservice/conf/server.xml
+sed -i 's/"8005"/"8006"/g' ~/apache-tomcat-7.0.54-stubwebservice/conf/server.xml
+apache-tomcat-7.0.54-stubwebservice/bin/catalina.sh start
 
 rm -rf ~/apache-tomcat-7.0.54/webapps/taxcalculator-*
 cp ~/batchers/taxcalculator/taxcalculator-presentation/target/taxcalculator-presentation-1.0-SNAPSHOT.war ~/apache-tomcat-7.0.54/webapps/taxcalculator.war
+
+rm -rf ~/apache-tomcat-7.0.54-stubwebservice/webapps/taxcalculator-*
+cp ~/batchers/taxcalculator/taxcalculator-stubwebservice/target/taxcalculator-stubwebservice-1.0-SNAPSHOT.war ~/apache-tomcat-7.0.54-stubwebservice/webapps/stubwebservice.war
