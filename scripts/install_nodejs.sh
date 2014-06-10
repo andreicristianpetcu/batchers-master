@@ -11,7 +11,6 @@ ndenv install v0.10.28
 ndenv global v0.10.28
 ndenv rehash
 
-
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
 
