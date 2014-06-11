@@ -18,6 +18,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 9091, host: 9091
   # mysql
   config.vm.network "forwarded_port", guest: 3306, host: 3306
+  # rabbitmq
+  config.vm.network "forwarded_port", guest: 5672, host: 5672
+  # rabbitmq admin
+  config.vm.network "forwarded_port", guest: 15672, host: 15672
 
   # config.vm.network "private_network", ip: "192.168.0.4"
 

@@ -11,7 +11,7 @@ apt-get install git -y
 
 ./scripts/install_mysql.sh
 
+./scripts/install_rabbitmq.sh
+
 #run script as Vagrant user not as root
 su -c "./scripts/install_as_vagrant.sh" -s /bin/bash vagrant
-
-# set up rabbitmq
