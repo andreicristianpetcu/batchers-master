@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+export DISPLAY=:10
+
 cd ~
 tar -xf apache-tomcat-7.0.54.tar.gz
 

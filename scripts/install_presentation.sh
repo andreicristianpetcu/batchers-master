@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+export DISPLAY=:10
+
 cd ~
 tar -xf apache-tomcat-7.0.54.tar.gz
 
@@ -12,6 +14,5 @@ sed -i 's/"8080"/"9090"/g' ~/apache-tomcat-7.0.54-presentation/conf/server.xml
 
 rm -rf ~/apache-tomcat-7.0.54/webapps/taxcalculator-*
 cp ~/batchers/taxcalculator/taxcalculator-presentation/target/taxcalculator-presentation-1.0-SNAPSHOT.war ~/apache-tomcat-7.0.54/webapps/taxcalculator.war
-
 
 apache-tomcat-7.0.54-presentation/bin/catalina.sh start
