@@ -5,6 +5,10 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update && apt-get upgrade -y
 apt-get install git -y
 
+#set master database ip address
+sed -i '/taxcalculatordb/d' /etc/hosts
+echo "127.0.0.1     taxcalculatordb" | tee -a /etc/hosts
+
 ./scripts/install_xvfb_and_firefox.sh
 
 ./scripts/install_oracle_java8.sh
