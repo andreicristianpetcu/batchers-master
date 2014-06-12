@@ -26,6 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network "private_network", ip: "192.168.0.4"
 
   config.vm.provision "file", source: "scripts", destination: "scripts"
+  config.vm.provision "file", source: "rabbitmq-signing-key-public.asc", destination: "rabbitmq-signing-key-public.asc"
   # command = "cp #{File.join('/scripts/', path_within_repo)} #{remote_file}"
   # config.vm.provision "file", source: "install_nodejs.sh", destination: "install_nodejs.sh"
   # config.vm.provision :shell, :inline => command

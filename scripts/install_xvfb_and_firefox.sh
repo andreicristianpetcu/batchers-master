@@ -11,3 +11,4 @@ if [[ ! -n "$XCFB_PID" ]]; then
   echo "Starting Xvfb"
   Xvfb :10 -ac </dev/null &>/dev/null &
 fi;
+echo "export DISPLAY=:10" | tee -a /home/vagrant/.bashrc
